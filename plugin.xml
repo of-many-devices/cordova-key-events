@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="uk.co.nightsnowgames.cordova.key_events" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>cordova-key-events</name>
-    <js-module name="cordova-key-events" src="www/cordova-key-events.js">
-        <clobbers target="cordova.plugins.cordova-key-events" />
-    </js-module>
+	<name>cordova-key-events</name>
+	<description>Cordova Key Event Plugin</description>
+	<keywords>cordova,keyboard,event,key</keywords>
+	
+	<js-module name="cordova-key-events" src="www/cordova-key-events.js">
+		<clobbers target="cordova.plugins.cordova-key-events" />
+	</js-module>
+
+    <!-- android -->
+	<platform name="android">
+		<config-file target="config.xml" parent="/*">
+			<feature name="key_events">
+				<param name="android-package" value="uk.co.nightsnowgames.cordova.key_events" onload="true" />
+			</feature>
+		</config-file>
+
+		<source-file src="src/android/key_events.java" target-dir="src/uk/co/nightsnowgames/key_events" />
+	</platform>
 </plugin>
