@@ -1,0 +1,35 @@
+{
+  "name": "uk.co.nightsnowgames.cordova.key_events",
+  "version": "0.0.1",
+  "description": "Cordova Key Event Plugin",
+  "cordova": {
+    "id": "uk.co.nightsnowgames.cordova.key_events",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/of-many-devices/cordova-plugin-key-events.git"
+  },
+  "keywords": [
+    "cordova",
+    "keyboard",
+    "event",
+    "key",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.2.0"
+    }
+  ],
+  "author": "David.O.",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/of-many-devices/cordova-plugin-key-events/issues"
+  },
+  "homepage": "https://github.com/of-many-devices/cordova-plugin-key-events#readme"
+}

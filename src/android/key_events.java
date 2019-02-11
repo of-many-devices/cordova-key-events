@@ -2,12 +2,18 @@ package uk.co.nightsnowgames.cordova.key_events;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
+
 import org.apache.cordova.*;
+
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class key_events extends CordovaPlugin
 {
+	private static final String TAG = "key_events";
+
     private CallbackContext cordova_cb_context;
 	private boolean cordova_ready = false;
 
