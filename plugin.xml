@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="uk.co.nightsnowgames.cordova.key_events" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-	<name>cordova-key-events</name>
+<plugin id="cordova-plugin-key-events" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>Key Events</name>
 	<description>Cordova Key Event Plugin</description>
 	<license>Apache 2.0</license>
 	<keywords>cordova,keyboard,event,key</keywords>
@@ -9,18 +9,18 @@
 		<engine name="cordova" version=">=3.2.0" />
 	</engines>
 
-	<js-module name="cordova-key-events" src="www/cordova-key-events.js">
-		<clobbers target="cordova.plugins.cordova-key-events" />
+	<js-module name="key_events" src="www/key_events.js">
+		<clobbers target="key_events" />
 	</js-module>
 
     <!-- android -->
 	<platform name="android">
 		<config-file target="config.xml" parent="/*">
-			<feature name="key_events">
-				<param name="android-package" value="uk.co.nightsnowgames.cordova.key_events" onload="true" />
+			<feature name="service_key_events">
+				<param name="android-package" value="uk.co.nightsnowgames.cordova.plugins.key_events.key_events" onload="true" />
 			</feature>
 		</config-file>
 
-		<source-file src="src/android/key_events.java" target-dir="src/uk/co/nightsnowgames/key_events" />
+		<source-file src="src/android/key_events.java" target-dir="src/uk/co/nightsnowgames/cordova/plugins" />
 	</platform>
 </plugin>

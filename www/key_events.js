@@ -8,7 +8,7 @@ var key_events =
 	{
 		key_events.event_cb = p_event_cb;
 
-		exec(key_events.success, key_events.error, "cordova-key-events", "init", []);
+		exec(key_events.success, key_events.error, "service_key_events", "init", []);
 	},
 
 	success: function(arg)
@@ -32,6 +32,7 @@ var key_events =
 	error: function(arg)
 	{
 		console.log("key_events: error: "+arg["error_string"]);
+		//console.log("key_events: error: "+arg);
 	},
 };
 

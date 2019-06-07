@@ -1,4 +1,4 @@
-package uk.co.nightsnowgames.cordova.key_events;
+package uk.co.nightsnowgames.cordova.plugins.key_events;
 
 import android.app.Activity;
 import android.content.Context;
@@ -37,6 +37,7 @@ public class key_events extends CordovaPlugin
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callback_context) throws JSONException
 	{
+		boolean ret_val = true;
 		Activity activity = this.cordova.getActivity();
 		JSONObject result = new JSONObject();
 
@@ -50,8 +51,9 @@ public class key_events extends CordovaPlugin
 		{
 			result.put("error_string", action + " is not a supported action");
 			cordova_cb_json(result, false);
+			ret_val = false;
 		}
 
-		return false;
+		return ret_val;
 	}
 }

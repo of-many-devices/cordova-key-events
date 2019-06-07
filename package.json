@@ -31,5 +31,6 @@
   "bugs": {
     "url": "https://github.com/of-many-devices/cordova-plugin-key-events/issues"
   },
-  "homepage": "https://github.com/of-many-devices/cordova-plugin-key-events#readme"
+  "homepage": "https://github.com/of-many-devices/cordova-plugin-key-events#readme",
+  "dependencies": {}
 }
