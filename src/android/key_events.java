@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnKeyListener;
+
 import org.apache.cordova.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class key_events extends CordovaPlugin
+public class key_events extends CordovaPlugin implements OnKeyListener
 {
 	private static final String TAG = "key_events";
 
@@ -43,6 +47,8 @@ public class key_events extends CordovaPlugin
 
 		if("init".equals(action))
 		{
+			this.webView.getView().setOnKeyListener(this);
+
 			cordova_ready = true;
 			result.put("event_type", "event_type_init");
 			cordova_cb_json(result, true);
@@ -55,5 +61,26 @@ public class key_events extends CordovaPlugin
 		}
 
 		return ret_val;
+	}
+
+	public void onDestroy()
+	{
+		this.webView.getView().setOnKeyListener(null);
+	}
+
+	@Override
+	public boolean onKey(View v, int keyCode, KeyEvent event)
+	{
+		if(event.getAction() == KeyEvent.ACTION_DOWN)
+		{
+			Log.d(TAG, String.format("KEY EVENT :: %d\n", keyCode));
+			switch (keyCode)
+			{
+				//case KeyEvent.KEYCODE_ENTER:
+				default:
+					break;
+			}
+		}
+		return true;
 	}
 }
