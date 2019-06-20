@@ -49,6 +49,7 @@ public class key_events extends CordovaPlugin implements OnKeyListener
 		{
 			this.webView.getView().setOnKeyListener(this);
 
+			cordova_cb_context = callback_context;
 			cordova_ready = true;
 			result.put("event_type", "event_type_init");
 			cordova_cb_json(result, true);
@@ -73,13 +74,35 @@ public class key_events extends CordovaPlugin implements OnKeyListener
 	{
 		if(event.getAction() == KeyEvent.ACTION_DOWN)
 		{
-			Log.d(TAG, String.format("KEY EVENT :: %d\n", keyCode));
-			switch (keyCode)
+			boolean shift_pressed = (keyCode & KeyEvent.META_SHIFT_MASK) != 0;
+			boolean ctrl_pressed = (keyCode & KeyEvent.META_CTRL_MASK) != 0;
+
+			String key_code_string = (KeyEvent.keyCodeToString(~(KeyEvent.getModifierMetaStateMask()) & keyCode)).substring(8);
+
+			JSONObject result = new JSONObject();
+
+			if(shift_pressed)
 			{
-				//case KeyEvent.KEYCODE_ENTER:
-				default:
-					break;
+				key_code_string = "S+"+key_code_string;
 			}
+			if(ctrl_pressed)
+			{
+				key_code_string = "C+"+key_code_string;
+			}
+
+			Log.d(TAG, String.format("KEY EVENT :: %d :: [%s]\n", keyCode, key_code_string));
+
+			try
+			{
+				result.put("event_type", "event_type_key_event");
+				result.put("key_string", key_code_string);
+			}
+			catch (JSONException e)
+			{
+				Log.d(TAG, "failed to json encode key event!\n");
+			}
+
+			cordova_cb_json(result, true);
 		}
 		return true;
 	}

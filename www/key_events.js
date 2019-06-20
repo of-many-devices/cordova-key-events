@@ -16,7 +16,8 @@ var key_events =
 		switch(arg["event_type"])
 		{
 			case "event_type_key_event":
-				key_events.event_cb.key_event(parseInt(arg["key_event"]));
+				console.log("key_events: ["+arg["key_string"]+"]");
+				key_events.event_cb.key_event(arg["key_string"]);
 				break;
 
 			case "event_type_init":
